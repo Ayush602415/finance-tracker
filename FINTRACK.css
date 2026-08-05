@@ -1,0 +1,782 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body{
+    background: white;
+    min-height: 100vh;
+}
+
+
+
+.container{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loginForm,
+#registerForm{
+    width: 400px;
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.2);
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#registerForm{
+    display: none;
+}
+
+#loginForm h1,
+#registerForm h1{
+    text-align: center;
+    color: #4F46E5;
+}
+
+#loginForm h2,
+#registerForm h2{
+    text-align: center;
+    font-size: 16px;
+    color: gray;
+    margin-bottom: 15px;
+}
+
+#loginForm span,
+#registerForm span{
+    font-weight: 600;
+}
+
+#loginForm input,
+#registerForm input,
+select{
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    font-size: 15px;
+    transition: .3s;
+}
+
+input:focus,
+select:focus{
+    border-color: #4F46E5;
+}
+
+#loginBtn,
+#registerBtn{
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #4F46E5;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#loginBtn:hover,
+#registerBtn:hover{
+    background: #3729d4;
+}
+
+.text{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.text span{
+    color: #4F46E5;
+    cursor: pointer;
+}
+
+.text span:hover{
+    text-decoration: underline;
+}
+
+
+
+#dashboard{
+    background: linear-gradient(90deg, red,green);
+    flex: 1;
+    padding: 35px;
+    min-height: 100vh;
+}
+
+
+
+#topBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+#topBar h1{
+    font-size: 40px;
+    color: white;
+}
+
+#topBar p{
+    margin-top: 8px;
+    color: white;
+    font-size: 18px;
+}
+
+#topRight{
+    display: flex;
+    margin-right: 120px;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Settings Button */
+
+.settings-btn{
+    position: absolute;
+    top: 55px;
+    right: 20px;
+    background: #111827;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:15px;
+    transition:0.3s;
+}
+
+
+.settings-btn:hover{
+    background:red;
+}
+
+
+.settings-modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    display:none;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.settings-box{
+    width:350px;
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+
+}
+
+.settings-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+}
+
+.settings-header h2{
+    margin:0;
+}
+
+#closeSettings{
+    cursor:pointer;
+    font-size:18px;
+
+}
+
+.settings-box input,
+.settings-box select{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #ddd;
+    outline:none;
+    font-size:15px;
+
+}
+
+.save-btn{
+    margin-top:10px;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+
+}
+
+
+.save-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+#welcomeUser{
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+}
+
+#logoutBtn{
+    padding: 12px 22px;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    transition: .3s;
+}
+
+#logoutBtn:hover{
+    background: #1d4ed8;
+}
+
+
+
+#cards{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card{
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 5px 18px rgba(0,0,0,.08);
+    transition: .3s;
+}
+
+.card:hover{
+    transform: translateY(-5px);
+}
+
+.icon{
+    width: 55px;
+    height: 55px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    background: #e0ecff;
+    margin-bottom: 18px;
+}
+
+.card:nth-child(2) .icon{
+    background:#dcfce7;
+}
+
+.card:nth-child(3) .icon{
+    background:#fee2e2;
+}
+
+.card:nth-child(4) .icon{
+    background:#dbeafe;
+}
+
+.card p{
+    color:#6b7280;
+    margin-bottom:10px;
+}
+
+.card h2{
+    font-size:34px;
+    color:#111827;
+}
+
+
+#openForm{
+    position: absolute;
+    left: 40%;
+    top: 30px;
+    width: 265px;
+    height: 58px;
+    border: none;
+    border-radius: 12px;
+    background: #000;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: .3s;
+    box-shadow: 0 10px 20px rgba(0,0,0,.25);
+}
+
+#openForm:hover{
+    background:#2563eb;
+    transform: translateY(-3px);
+}
+
+
+
+#transactionModal{
+
+    position: fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100vh;
+
+    background: rgba(0,0,0,.45);
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:999;
+
+}
+.editBtn,
+.deleteBtn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+}
+
+.editBtn {
+    background: #2563eb;
+}
+
+.editBtn:hover {
+    background: #1d4ed8;
+}
+
+.deleteBtn {
+    background: #dc2626;
+}
+
+.deleteBtn:hover {
+    background: #b91c1c;
+}
+
+#modalBox{
+
+    width:470px;
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+
+}
+
+/* Header */
+
+#modalHeader{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+#modalHeader h2{
+
+    font-size:30px;
+
+    color:#111827;
+
+}
+
+#closeForm{
+
+    font-size:30px;
+
+    cursor:pointer;
+
+    color:#6b7280;
+
+    transition:.3s;
+
+}
+
+#closeForm:hover{
+
+    color:red;
+
+}
+
+
+
+#transactionForm{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.inputBox{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.inputBox label{
+
+    font-size:16px;
+
+    font-weight:600;
+
+    color:#374151;
+
+}
+
+.inputBox input,
+.inputBox select{
+
+    padding:14px;
+
+    border:1px solid #d1d5db;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.inputBox input:focus,
+.inputBox select:focus{
+
+    border-color:#2563eb;
+
+}
+
+#addBtn{
+
+    margin-top:10px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#addBtn:hover{
+
+    background:#1d4ed8;
+
+}
+
+
+
+
+
+
+#middleSection{
+    display:flex;
+    gap:25px;
+    margin-bottom:30px;
+}
+
+#chartSection{
+    flex:1.5;
+    background:white;
+    border-radius:16px;
+    padding:25px;
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+}
+
+#chartSection h2{
+    margin-bottom:20px;
+    color:#111827;
+}
+
+#cashChart{
+    width:100%;
+    height:320px;
+}
+
+#preferenceSection{
+    flex:1;
+    background:white;
+    border-radius:16px;
+    padding:25px;
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+}
+
+#preferenceSection h2{
+    margin-bottom:30px;
+    color:#111827;
+}
+
+
+.setting{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:35px;
+}
+
+.setting span{
+    font-size:18px;
+    font-weight:600;
+}
+
+#resetBtn{
+    width:100%;
+    padding:14px;
+    border:1px solid #ef4444;
+    border-radius:10px;
+    background:white;
+    color:#dc2626;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+#resetBtn:hover{
+    background:#dc2626;
+    color:white;
+}
+
+
+
+#transactionSection{
+    background:white;
+    border-radius:16px;
+    padding:25px;
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+}
+
+#transactionSection h2{
+    font-size:35px;
+    margin-bottom:25px;
+    color:#111827;
+}
+
+#filterBar{
+    display:flex;
+    gap:20px;
+    margin-bottom:25px;
+}
+
+#search{
+    flex:1;
+    padding:14px 18px;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    outline:none;
+    font-size:16px;
+}
+
+#filterType{
+    width:250px;
+    padding:14px;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    outline:none;
+    font-size:16px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+thead{
+    background:#f8fafc;
+}
+
+th{
+    padding:18px;
+    text-align:left;
+    color:#6b7280;
+    font-size:15px;
+}
+
+td{
+    padding:18px;
+    border-top:1px solid #e5e7eb;
+    color:#374151;
+}
+
+tr:hover{
+    background:#f9fafb;
+}
+
+
+body.dark{
+    background:#111827;
+}
+
+
+
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark p,
+.dark span,
+.dark label{
+    color:white;
+}
+
+
+
+
+.dark .card,
+.dark #chartSection,
+.dark #preferenceSection,
+.dark #transactionSection,
+.dark .settings-box,
+.dark #modalBox{
+    background:#1f2937;
+    color:white;
+}
+
+
+
+.dark .card p{
+    color:#d1d5db;
+}
+
+
+
+
+.dark .card h2{
+    color:white;
+}
+
+
+
+.dark table{
+    color:white;
+}
+
+
+.dark thead{
+    background:#374151;
+}
+
+
+.dark th{
+    color:#d1d5db;
+}
+
+
+.dark td{
+    color:#e5e7eb;
+    border-color:#4b5563;
+}
+
+
+.dark tr:hover{
+    background:#374151;
+}
+
+
+
+
+.dark input,
+.dark select{
+    background:#374151;
+    color:white;
+    border-color:#6b7280;
+}
+
+
+.dark input::placeholder{
+    color:#d1d5db;
+}
+
+
+
+.dark #resetBtn{
+    background:#1f2937;
+    color:#f87171;
+}
+
+
+.dark #resetBtn:hover{
+    background:#dc2626;
+    color:white;
+}
+
+
+.dark #chartSection h2,
+.dark #preferenceSection h2,
+.dark #transactionSection h2{
+    color:white;
+}
+
+
+
+
+.dark #closeForm,
+.dark #closeSettings{
+    color:#d1d5db;
+}
+
+
+
+
+.dark #topBar h1,
+.dark #topBar p{
+    color:white;
+}

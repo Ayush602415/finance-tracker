@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fin Track Pro</title>
+    <link rel="stylesheet" href="FINTRACK.css">
+    <link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinTrack Pro</title>
+    <link rel="stylesheet" href="FINTRACK.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Login Form -->
+        <form id="loginForm">
+
+            <h1>Welcome Back</h1>
+            <h2>Login to FinTrack Pro</h2>
+
+            <span>Username</span>
+            <input type="text" id="loginUsername" placeholder="Enter Username">
+
+            <span>Password</span>
+            <input type="password" id="loginPassword" placeholder="Enter Password">
+
+            <button type="submit" id="loginBtn">Login</button>
+
+            <p class="text">
+                Don't have an account?
+                <span id="showRegister">Register Here</span>
+            </p>
+
+        </form>
+
+
+        <!-- Register Form -->
+        <form id="registerForm">
+
+            <h1>Create Account</h1>
+            <h2>Register to FinTrack Pro</h2>
+
+            <span>Username</span>
+            <input type="text" id="registerUsername" placeholder="Enter Username">
+
+            <span>Password</span>
+            <input type="password" id="registerPassword" placeholder="Create Password">
+
+            <span>Confirm Password</span>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password">
+
+            <button type="submit" id="registerBtn">Register</button>
+
+            <p class="text">
+                Already have an account?
+                <span id="showLogin">Login Here</span>
+            </p>
+
+        </form>
+
+       <div id="dashboard">
+            
+        <!-- Settings Button -->
+<button  class="settings-btn">
+    ⚙ Settings
+</button>
+
+
+<!-- Settings Modal -->
+<div class="settings-modal">
+
+    <div class="settings-box">
+
+        <div class="settings-header">
+            <h2>Settings</h2>
+            <span id="closeSettings">✖</span>
+        </div>
+
+
+        <label>Username</label>
+        <input type="text" id="username" placeholder="Enter username">
+
+
+        <label>Currency</label>
+        <select id="currency">
+            <option value="₹">INR (₹)</option>
+            <option value="$">USD ($)</option>
+            <option value="€">EUR (€)</option>
+        </select>
+
+
+        <button class="save-btn">
+            Save Changes
+        </button>
+
+    </div>
+
+</div>
+    <!-- Top Bar -->
+    <div id="topBar">
+
+        <div>
+            <h1>Financial Overview</h1>
+            <p>Real-time tracking application</p>
+        </div>
+
+        <div id="topRight">
+            <span id="welcomeUser">Hello, User</span>
+            <button id="logoutBtn">Logout</button>
+        </div>
+    </div>
+
+    <!-- Summary Cards -->
+
+    <div id="cards">
+
+        <div class="card">
+
+            <div class="icon">💰</div>
+
+            <p>Current Balance</p>
+
+            <h2 id="currentBalance">₹0.00</h2>
+
+        </div>
+
+        <div class="card">
+
+            <div class="icon">📈</div>
+
+            <p>Total Income</p>
+
+            <h2 id="totalIncome">₹0.00</h2>
+
+        </div>
+
+        <div class="card">
+
+            <div class="icon">📉</div>
+
+            <p>Total Expense</p>
+
+            <h2 id="totalExpense">₹0.00</h2>
+
+        </div>
+
+        <div class="card">
+
+            <div class="icon">📋</div>
+
+            <p>Total Transactions</p>
+
+            <h2 id="totalTransactions">0</h2>
+
+        </div>
+
+    </div>
+    
+    <!-- Floating Button -->
+
+    <button id="openForm">
+    <i class="ri-add-line"></i>
+    Add Transaction
+</button>
+
+
+
+<!-- Modal -->
+
+<div id="transactionModal">
+
+    <div id="modalBox">
+
+        <div id="modalHeader">
+
+            <h2>Add Transaction</h2>
+
+            <i class="ri-close-line" id="closeForm"></i>
+
+        </div>
+
+        <form id="transactionForm">
+
+            <div class="inputBox">
+
+                <label>Title</label>
+
+                <input
+                    type="text"
+                    id="title"
+                    placeholder="Enter title"
+                >
+
+            </div>
+
+            <div class="inputBox">
+
+                <label>Amount</label>
+
+                <input
+                    type="number"
+                    id="amount"
+                    placeholder="Enter amount"
+                >
+
+            </div>
+
+            <div class="inputBox">
+
+                <label>Category</label>
+
+                <select id="category">
+
+                    <option value="">Select Category</option>
+                    <option>Salary</option>
+                    <option>Food</option>
+                    <option>Shopping</option>
+                    <option>Travel</option>
+                    <option>Bills</option>
+                    <option>Entertainment</option>
+                    <option>Other</option>
+
+                </select>
+
+            </div>
+
+            <div class="inputBox">
+
+                <label>Type</label>
+
+                <select id="type">
+
+                    <option value="">Select Type</option>
+                    <option>Income</option>
+                    <option>Expense</option>
+
+                </select>
+
+            </div>
+
+            <div class="inputBox">
+
+                <label>Date</label>
+
+                <input type="date" id="date">
+
+            </div>
+
+            <button id="addBtn">
+                Add Transaction
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+    <!-- Chart + Preferences -->
+
+    <div id="middleSection">
+
+        <!-- Chart -->
+
+        <div id="chartSection">
+
+            <h2>Cash Flow Analysis</h2>
+
+            <canvas id="cashChart"></canvas>
+
+        </div>
+
+        <!-- Preferences -->
+
+        <div id="preferenceSection">
+
+            <h2>Preferences</h2>
+
+            <div class="setting">
+
+                <span>Dark Mode</span>
+
+                <label class="switch">
+
+                    <input type="checkbox" id="darkMode">
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+            <button id="resetBtn">
+                Reset All Data
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Transactions -->
+
+    <div id="transactionSection">
+
+        <h2>All Transactions</h2>
+
+        <div id="filterBar">
+
+            <input
+                type="text"
+                id="search"
+                placeholder="Search transactions..."
+            >
+
+            <select id="filterType">
+
+                <option value="all">All Types</option>
+
+                <option value="income">Income</option>
+
+                <option value="expense">Expense</option>
+
+            </select>
+
+        </div>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Date</th>
+
+                    <th>Description</th>
+
+                    <th>Category</th>
+
+                    <th>Amount</th>
+
+                    <th>Actions</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="transactionBody">
+
+                <!-- JS -->
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="FINTRACK.js"></script>
+
+</body>
+</html>
