@@ -27,7 +27,7 @@ body{
     padding: 35px;
     border-radius: 15px;
     box-shadow: 0 15px 40px rgba(0,0,0,.2);
-    display: none;
+    display: flex;
     flex-direction: column;
     gap: 12px;
 }
@@ -109,6 +109,7 @@ select:focus{
     flex: 1;
     padding: 35px;
     min-height: 100vh;
+    display: none;
 }
 
 
