@@ -246,6 +246,7 @@ function showTransactions(data) {
 showTransactions(transactions)
 
 function updateCards(){
+    let total = transactions.length
     let balance  = 0
     let income = 0
     let expense = 0
@@ -263,6 +264,7 @@ function updateCards(){
     currentBalance.textContent = currency + balance;
     totalIncome.textContent = currency + income;
     totalExpense.textContent = currency + expense;
+    totalTransactions.textContent = total
 }
 updateCards()
 
