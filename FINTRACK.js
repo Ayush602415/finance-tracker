@@ -69,6 +69,10 @@ span2.addEventListener("click",function(){
 
 registerBtn.addEventListener("click",function(e){
     e.preventDefault()
+    if(username.value.trim()==="" || confirmPassword.value.trim()==="" || password.value.trim()===""){
+        alert("Please Enter details")
+        return
+    }
     if(password.value!==confirmPassword.value){
         alert("Password Not Matched")
         return
@@ -80,6 +84,8 @@ registerBtn.addEventListener("click",function(e){
     }
     localStorage.setItem("user" , JSON.stringify(user))
     alert("Registration Sucessful")
+    register.style.display = "none";
+    login.style.display = "flex";
 })
 
 loginBtn.addEventListener("click",function(e){
@@ -90,19 +96,32 @@ loginBtn.addEventListener("click",function(e){
     return
    }
    if(loginusername.value===user.username && loginpassword.value===user.password){
-    alert("Login sucessful")
-   }
-   else {
-        alert("Invalid Username or Password");
+
+    alert("Login Successful");
+
+    localStorage.setItem("isLoggedIn","true");
+
+    login.style.display = "none";
+    dashboard.style.display = "block";
+
+    let savedName = localStorage.getItem("username");
+
+    if(savedName){
+        welcomeUser.textContent = `Hello, ${savedName}`;
+    }else{
+        welcomeUser.textContent = `Hello, ${user.username}`;
     }
-    if(loginusername.value===user.username && loginpassword.value===user.password){
-    login.style.display = "none"
-    dashboard.style.display = "block"
+
+}
+else{
+    alert("Invalid Username or Password");
 }
 })
 
 
 logout.addEventListener("click",function(){
+    localStorage.removeItem("isLoggedIn")
+
     dashboard.style.display = "none"
     login.style.display = "flex"
 })
@@ -146,7 +165,7 @@ savebtn.addEventListener("click", function (e) {
 
     settingsModal.style.display = "none";
     addBtn.style.display = "flex"
-
+    usernameInput.value = "";
 });
 
 let savedName = localStorage.getItem("username");
@@ -239,10 +258,11 @@ function updateCards(){
         }
     })
     balance = income-expense
-    currentBalance.textContent = balance
-    totalIncome.textContent = income
-    totalExpense.textContent = expense
-    totalTransactions.textContent = transactions.length
+    let currency = localStorage.getItem("currency") || "₹";
+
+    currentBalance.textContent = currency + balance;
+    totalIncome.textContent = currency + income;
+    totalExpense.textContent = currency + expense;
 }
 updateCards()
 
@@ -337,13 +357,37 @@ resetBtn.addEventListener("click",function(){
 })
 
 darkMode.addEventListener("change",function(){
-    document.body.classList.toggle("dark")
-    localStorage.setItem("theme",darkMode.checked)
-    let savedTheme = localStorage.getItem("theme")
-    if(savedTheme==="true"){
-        darkMode.checked
-        document.body.classList.add("dark")
+
+    document.body.classList.toggle("dark");
+
+    localStorage.setItem("theme",darkMode.checked);
+
+});
+
+let savedTheme = localStorage.getItem("theme");
+
+if(savedTheme==="true"){
+
+    darkMode.checked = true;
+
+    document.body.classList.add("dark");
+
+}
+
+if(localStorage.getItem("isLoggedIn")==="true"){
+
+    login.style.display = "none";
+    dashboard.style.display = "block";
+
+    const savedName = localStorage.getItem("username");
+    if(savedName){
+        welcomeUser.textContent = `Hello, ${savedName}`;
     }
-})
 
+}else{
 
+    login.style.display = "flex";
+    dashboard.style.display = "none";
+
+}
+updateChart();
